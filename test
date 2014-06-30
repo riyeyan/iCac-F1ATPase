@@ -1,0 +1,27 @@
+inconsistent Mass 1: R_BIOMASS: Biomass synthesis	reversible: false
+40 M_atp_c + 0.0432 M_carbo_met_c + 0.026 M_dna_met_c + 0.1009 M_peptido_met_c + 0.076 M_plipid_met_c + 0.5284 M_protein_met_c + 0.0655 M_rna_met_c + 0.08 M_teich_met_c + 0.0495 M_trace_met_c => 40 M_adp_c + 40 M_pi_c
+40 C10H13N5O13P3 + 0.0432 C37.038H61.73O30.865 + 0.026 C31.879H36.74O19.442N11.834P3.242 + 0.1009 C40H62O21N8 + 0.076 C54.6099H102.8475O12.223N0.8P1.415 + 0.5284 C43.855H12.806O21.273N10.746S1.999 + 0.0655 C29.7H33.21O21.589N11.778P3.107 + 0.08 C158.5581H373.333O251.9457N3P48.1860 + 0.0495 C29.06H34.914O16.931N9.379P2.28S0.199 => 40 C10H13N5O10P2 + 40 H2O4P
+C: 49.8566979999999
+H: -21.7689856
+N: 8.32958989999997
+O: -1.46481879999999
+P: 4.3630805
+S: 1.0661221
+--------------------------------------------------
+inconsistent Mass 2: R_PEPTIDO_CA: Pepglycan synthesis	reversible: false
+1.026 M_uaagmda_c => M_peptido_met_c + 1.026 M_udcpdp_c
+1.026 C95H152N8O28P2 => C40H62O21N8 + 1.026 C55H90O7P2
+C: 1.03999999999999
+H: 1.61199999999999
+N: 0.208
+O: 0.545999999999999
+--------------------------------------------------
+inconsistent Mass 3: R_PLIPID_CA: lipid	reversible: false
+0.1084 M_clpn_CA_c + 0.393 M_pe_CA_c + 0.791 M_pg_CA_c => M_plipid_met_c
+0.1084 C75.78H138.6O17P2 + 0.393 C38.39H73.3NO8P + 0.791 C39.39H73.3O10P => C54.6099H102.8475O12.223N0.8P1.415
+C: -0.150587999999999
+H: -1.03605999999999
+N: -0.407
+O: 0.6738
+P: -0.0142
+--------------------------------------------------

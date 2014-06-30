@@ -57,7 +57,7 @@ sub parseModel{
 sub parseElement{
 
 	my $f = shift;
-	my @elementList = ('C','H','O','N','P','S','K','Na','Cl','Ca','Mg','Mn','Co','Cu','Se','Fe');
+	my @elementList = ('C','H','O','N','P','S','K','Na','Cl','Ca','Mg','Mn','Co','Cu','Se','Fe','Zn');
 	my $elementCount = {};
 	
 	for my $e (@elementList){
@@ -67,6 +67,8 @@ sub parseElement{
 			$elementCount->{$e} = 1;
 		}elsif ($f =~ m/$e(\d+)n/){
 			$elementCount->{$e} = $1*3;
+		}elsif ($f =~ m/$e(\d+\.\d+)/){
+			$elementCount->{$e} = $1;
 		}elsif ($f =~ m/$e(\d+)/){
 			$elementCount->{$e} = $1;
 		}else{
@@ -100,7 +102,7 @@ sub checkMass{
 
 	for my $e (sort keys %$elementsAll){
 		$elementsAll->{$e} = $reactantsElements->{$e} - $productsElements->{$e};
-		$f = 1 if $elementsAll->{$e} != 0;
+		$f = 1 if abs($elementsAll->{$e}) > 1e-3;
 	}
 
 	return ($f, $elementsAll);
@@ -135,7 +137,7 @@ sub checMassChargeConsistency{
 	my $incMassRH = {};
 	my $incChargeRH = {};
 	for my $rxn (sort keys %$rH){
-		if ($rxn !~ /^R_EX_/){
+		if (($rxn !~ /^R_EX_/) and ($rxn !~ /^R_DM_/)){
 			my ($f, $diffAtoms) = checkMass($rH->{$rxn}, $cH);
 			my ($k, $diffCharge) = checkCharge($rH->{$rxn}, $cH);
 
