@@ -65,6 +65,8 @@ sub parseElement{
 			$elementCount->{$e} = 1;
 		}elsif ($f =~ m/($e)$/){
 			$elementCount->{$e} = 1;
+		}elsif ($f =~ m/$e(\d+)n/){
+			$elementCount->{$e} = $1*3;
 		}elsif ($f =~ m/$e(\d+)/){
 			$elementCount->{$e} = $1;
 		}else{
