@@ -11,10 +11,8 @@ clc
 %         f1.timepoints (9*1) h
 
 
-cd 'C:\Users\uqyanzhu\Documents\F1-ATPase\Dai data';
 load 'f1.mat';
 load 'p1.mat';
-cd 'C:\Users\uqyanzhu\Documents\F1-ATPase\Dai data\20120523_recalculate';
 
 % transform coefficient gDW/(OD*L)
 f=0.3;

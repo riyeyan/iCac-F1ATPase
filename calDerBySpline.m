@@ -36,7 +36,9 @@ der = differentiate(fitresult,x);
 return
 
 function [fitresult, gof] = createFit(x, y, f)
-[xData, yData] = prepareCurveData( x, y );
+% [xData, yData] = prepareCurveData( x, y );
+xData = x;
+yData = y;
 
 % Set up fittype and options.
 if f == 2
