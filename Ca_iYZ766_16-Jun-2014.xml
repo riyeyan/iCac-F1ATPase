@@ -4842,7 +4842,7 @@
       <species id="M_plipid_met_c" name="Lipid" compartment="c" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>FORMULA: C55.0129H102.8475O13.029N0.397P1.415</p>
+            <p>FORMULA: C54.6099H102.8475O12.223N0.8P1.415</p>
             <p>CHARGE: 0</p>
           </body>
         </notes>
@@ -5794,7 +5794,7 @@
       <species id="M_trace_met_c" name="Trace compounds" compartment="c" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>FORMULA: C29.06H34.914O16.931N9.379P2.28S0.199</p>
+            <p>FORMULA: C29.1606H35.0384O16.9654N9.3996P2.2825S0.20025Mg0.000625Fe0.001875Zn0.000625Co0.00125</p>
             <p>CHARGE: 0</p>
           </body>
         </notes>
@@ -10521,7 +10521,7 @@
         </notes>
         <listOfReactants>
           <speciesReference species="M_amylose_e" stoichiometry="1"/>
-          <speciesReference species="M_h2o_e" stoichiometry="2"/>
+          <speciesReference species="M_h2o_e" stoichiometry="1"/>
         </listOfReactants>
         <listOfProducts>
           <speciesReference species="M_glc_D_e" stoichiometry="1"/>
@@ -11547,7 +11547,7 @@
           </math>
           <listOfParameters>
             <parameter id="LOWER_BOUND" value="0" units="mmol_per_gDW_per_hr" constant="false"/>
-            <parameter id="UPPER_BOUND" value="1000" units="mmol_per_gDW_per_hr" constant="false"/>
+            <parameter id="UPPER_BOUND" value="1" units="mmol_per_gDW_per_hr" constant="false"/>
             <parameter id="FLUX_VALUE" value="0" units="mmol_per_gDW_per_hr" constant="false"/>
             <parameter id="OBJECTIVE_COEFFICIENT" value="0" units="mmol_per_gDW_per_hr" constant="false"/>
           </listOfParameters>
@@ -11662,15 +11662,14 @@
         </notes>
         <listOfReactants>
           <speciesReference species="M_atp_c" stoichiometry="40"/>
-          <speciesReference species="M_h2o_c" stoichiometry="40"/>
-          <speciesReference species="M_carbo_met_c" stoichiometry="0.0431"/>
+          <speciesReference species="M_carbo_met_c" stoichiometry="0.0432"/>
           <speciesReference species="M_dna_met_c" stoichiometry="0.026"/>
-          <speciesReference species="M_peptido_met_c" stoichiometry="0.1018"/>
-          <speciesReference species="M_plipid_met_c" stoichiometry="0.0743"/>
-          <speciesReference species="M_protein_met_c" stoichiometry="0.4827"/>
-          <speciesReference species="M_rna_met_c" stoichiometry="0.0657"/>
-          <speciesReference species="M_teich_met_c" stoichiometry="0.0101"/>
-          <speciesReference species="M_trace_met_c" stoichiometry="0.0572"/>
+          <speciesReference species="M_peptido_met_c" stoichiometry="0.1009"/>
+          <speciesReference species="M_plipid_met_c" stoichiometry="0.076"/>
+          <speciesReference species="M_protein_met_c" stoichiometry="0.5284"/>
+          <speciesReference species="M_rna_met_c" stoichiometry="0.0655"/>
+          <speciesReference species="M_teich_met_c" stoichiometry="0.08"/>
+          <speciesReference species="M_trace_met_c" stoichiometry="0.0495"/>
         </listOfReactants>
         <listOfProducts>
           <speciesReference species="M_adp_c" stoichiometry="40"/>
@@ -15328,7 +15327,6 @@
           <speciesReference species="M_dctp_c" stoichiometry="0.501"/>
           <speciesReference species="M_dgtp_c" stoichiometry="0.501"/>
           <speciesReference species="M_dttp_c" stoichiometry="1.118"/>
-          <speciesReference species="M_h2o_c" stoichiometry="4.403"/>
         </listOfReactants>
         <listOfProducts>
           <speciesReference species="M_adp_c" stoichiometry="4.403"/>
@@ -15842,10 +15840,10 @@
         </notes>
         <listOfReactants>
           <speciesReference species="M_dextrin_c" stoichiometry="1"/>
-          <speciesReference species="M_h2o_c" stoichiometry="3"/>
+          <speciesReference species="M_h2o_c" stoichiometry="1"/>
         </listOfReactants>
         <listOfProducts>
-          <speciesReference species="M_malt_c" stoichiometry="3"/>
+          <speciesReference species="M_malt_c" stoichiometry="2"/>
         </listOfProducts>
         <kineticLaw>
           <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -15872,10 +15870,10 @@
         </notes>
         <listOfReactants>
           <speciesReference species="M_dextrin_e" stoichiometry="1"/>
-          <speciesReference species="M_h2o_e" stoichiometry="3"/>
+          <speciesReference species="M_h2o_e" stoichiometry="1"/>
         </listOfReactants>
         <listOfProducts>
-          <speciesReference species="M_malt_e" stoichiometry="3"/>
+          <speciesReference species="M_malt_e" stoichiometry="2"/>
         </listOfProducts>
         <kineticLaw>
           <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -29164,11 +29162,11 @@
           </body>
         </notes>
         <listOfReactants>
-          <speciesReference species="M_uaagmda_c" stoichiometry="1"/>
+          <speciesReference species="M_uaagmda_c" stoichiometry="1.026"/>
         </listOfReactants>
         <listOfProducts>
           <speciesReference species="M_peptido_met_c" stoichiometry="1"/>
-          <speciesReference species="M_udcpdp_c" stoichiometry="1"/>
+          <speciesReference species="M_udcpdp_c" stoichiometry="1.026"/>
         </listOfProducts>
         <kineticLaw>
           <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -29972,9 +29970,9 @@
           </body>
         </notes>
         <listOfReactants>
-          <speciesReference species="M_clpn_CA_c" stoichiometry="0.109"/>
-          <speciesReference species="M_pe_CA_c" stoichiometry="0.397"/>
-          <speciesReference species="M_pg_CA_c" stoichiometry="0.800"/>
+          <speciesReference species="M_clpn_CA_c" stoichiometry="0.1084"/>
+          <speciesReference species="M_pe_CA_c" stoichiometry="0.393"/>
+          <speciesReference species="M_pg_CA_c" stoichiometry="0.791"/>
         </listOfReactants>
         <listOfProducts>
           <speciesReference species="M_plipid_met_c" stoichiometry="1"/>
@@ -31136,13 +31134,11 @@
           <speciesReference species="M_trp_L_c" stoichiometry="0.043"/>
           <speciesReference species="M_tyr_L_c" stoichiometry="0.801"/>
           <speciesReference species="M_val_L_c" stoichiometry="1.172"/>
-          <speciesReference species="M_h2o_c" stoichiometry="37.195"/>
         </listOfReactants>
         <listOfProducts>
           <speciesReference species="M_adp_c" stoichiometry="37.195"/>
           <speciesReference species="M_pi_c" stoichiometry="37.195"/>
           <speciesReference species="M_protein_met_c" stoichiometry="1"/>
-          <speciesReference species="M_h_c" stoichiometry="74.39"/>
         </listOfProducts>
         <kineticLaw>
           <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -32535,7 +32531,6 @@
           <speciesReference species="M_ctp_c" stoichiometry="0.403"/>
           <speciesReference species="M_gtp_c" stoichiometry="0.565"/>
           <speciesReference species="M_utp_c" stoichiometry="0.987"/>
-          <speciesReference species="M_h2o_c" stoichiometry="1.25"/>
         </listOfReactants>
         <listOfProducts>
           <speciesReference species="M_adp_c" stoichiometry="1.25"/>
@@ -33584,6 +33579,7 @@
           </body>
         </notes>
         <listOfReactants>
+          <speciesReference species="M_h2o_c" stoichiometry="1"/>
           <speciesReference species="M_starch_c" stoichiometry="1"/>
         </listOfReactants>
         <listOfProducts>
@@ -33896,6 +33892,7 @@
           </body>
         </notes>
         <listOfReactants>
+          <speciesReference species="M_h2o_e" stoichiometry="1"/>
           <speciesReference species="M_starch_e" stoichiometry="1"/>
         </listOfReactants>
         <listOfProducts>
@@ -33925,13 +33922,12 @@
           </body>
         </notes>
         <listOfReactants>
-          <speciesReference species="M_pi_c" stoichiometry="3"/>
+          <speciesReference species="M_pi_c" stoichiometry="1"/>
           <speciesReference species="M_starch_c" stoichiometry="1"/>
         </listOfReactants>
         <listOfProducts>
           <speciesReference species="M_amylose_c" stoichiometry="1"/>
-          <speciesReference species="M_g1p_c" stoichiometry="3"/>
-          <speciesReference species="M_h_c" stoichiometry="3"/>
+          <speciesReference species="M_g1p_c" stoichiometry="1"/>
         </listOfProducts>
         <kineticLaw>
           <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -34664,7 +34660,6 @@
           <speciesReference species="M_lys_L_c" stoichiometry="0.129"/>
           <speciesReference species="M_polygp_c" stoichiometry="0.518"/>
           <speciesReference species="M_uacgam_c" stoichiometry="0.129"/>
-          <speciesReference species="M_h2o_c" stoichiometry="0.129"/>
         </listOfReactants>
         <listOfProducts>
           <speciesReference species="M_adp_c" stoichiometry="0.129"/>
@@ -37252,11 +37247,11 @@
           </body>
         </notes>
         <listOfReactants>
-          <speciesReference species="M_h2o_e" stoichiometry="3"/>
+          <speciesReference species="M_h2o_e" stoichiometry="1"/>
           <speciesReference species="M_xylan_e" stoichiometry="1"/>
         </listOfReactants>
         <listOfProducts>
-          <speciesReference species="M_xyl_D_e" stoichiometry="3"/>
+          <speciesReference species="M_xyl_D_e" stoichiometry="1"/>
         </listOfProducts>
         <kineticLaw>
           <math xmlns="http://www.w3.org/1998/Math/MathML">
