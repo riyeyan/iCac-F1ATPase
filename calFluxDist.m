@@ -13,12 +13,11 @@ close all;
 load 'Ca_iYZ766_30-Jun-2014.mat';
 load 'f1.mat';
 load 'p1.mat';
-load Qrates.mat;
-load Mus.mat;
+[mup1,muf1,Qmp1,Qmf1] = specRatesByFitting(f1,p1,0);
 
 % change cobra solver
-% changeCobraSolver('gurobi5','LP')
-changeCobraSolver('glpk','LP');
+changeCobraSolver('gurobi5','LP');
+% changeCobraSolver('glpk','LP');
 
 % booundary reactions required to be constrained
 boundRxns = {'EX_glc(e)','EX_ac(e)','EX_etoh(e)','EX_actn(e)','EX_but(e)',...

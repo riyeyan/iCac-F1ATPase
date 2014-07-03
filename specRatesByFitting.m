@@ -1,5 +1,8 @@
-clear
-clc
+function [mup1,muf1,Qmp1,Qmf1] = specRatesByFitting(f1,p1,flag)
+% function [mup1,muf1,Qmp1,Qmf1] = specRatesByFitting(f1,p1,flag)
+% calculate the specific rates by fitting
+% Yan Zhu
+% 2/7/2014
 % load fermentation data of P1 (with null plasmid) and F1 (F1-ATPase
 % overexpressed)
 % f1.timespoint : 14*1 h
@@ -11,13 +14,10 @@ clc
 %         f1.timepoints (9*1) h
 
 
-load 'f1.mat';
-load 'p1.mat';
-
 % transform coefficient gDW/(OD*L)
 f=0.3;
 n = 9;
-method = [0,1,2]'; 
+method = [0,1,2]';
 % 0: pchipinterp; 1: smoothingspline; 2: splineinterp
 
 % specific growth rates
@@ -30,7 +30,7 @@ Qmp1 = zeros(size(p1.mets.val));
 Qmf1 = zeros(size(f1.mets.val));
 
 [a,loc]=ismember(p1.mets.timepoints, p1.timepoints);
-for i =1:length(p1.mets.mw)  
+for i =1:length(p1.mets.mw)
     Qmp1(:,i) = calDerBySpline(p1.mets.timepoints,p1.mets.val(:,i)/p1.mets.mw(i)*1000,method(1))./(p1.od(loc)*f);
     Qmf1(:,i) = calDerBySpline(f1.mets.timepoints,f1.mets.val(:,i)/f1.mets.mw(i)*1000,method(1))./(f1.od(loc)*f);
 end
@@ -63,33 +63,34 @@ ind_t = ismember(p1.mets.timepoints,p1.timepoints);
 carbonConsist= [Qmp1*atomNum+mup1(ind_t)*biomassCNumPerGram Qmf1*atomNum+muf1(ind_t)*biomassCNumPerGram];
 relativeConsist = carbonConsist./[Qmp1(:,1)*6 Qmf1(:,1)*6];
 
-
-
-save Mus.mat mup1 muf1;
-save Qrates.mat Qmp1 Qmf1;
-
-fid=fopen('eflux.txt','w');
-
-fprintf(fid,'\t%s\t%s\t%s\t%s\t%s\t%s\n','R_EX_glc_e_','R_EX_ac_e_','R_EX_etoh_e_','R_EX_actn_e_','R_EX_but_e_','R_EX_butoh_e_');
-for i =1:size(Qmp1,1)
-    fprintf(fid,'%s',strcat(num2str(p1.mets.timepoints(i)),'p'));
-    for j = 1:size(Qmp1,2)
-        fprintf(fid,'\t%f',Qmp1(i,j));
+if flag
+    
+    save Mus.mat mup1 muf1;
+    save Qrates.mat Qmp1 Qmf1;
+    
+    fid=fopen('eflux.txt','w');
+    
+    fprintf(fid,'\t%s\t%s\t%s\t%s\t%s\t%s\n','R_EX_glc_e_','R_EX_ac_e_','R_EX_etoh_e_','R_EX_actn_e_','R_EX_but_e_','R_EX_butoh_e_');
+    for i =1:size(Qmp1,1)
+        fprintf(fid,'%s',strcat(num2str(p1.mets.timepoints(i)),'p'));
+        for j = 1:size(Qmp1,2)
+            fprintf(fid,'\t%f',Qmp1(i,j));
+        end
+        fprintf(fid,'\n');
     end
-    fprintf(fid,'\n');
+    
+    for i =1:size(Qmf1,1)
+        fprintf(fid,'%s',strcat(num2str(f1.mets.timepoints(i)),'f'));
+        for j = 1:size(Qmf1,2)
+            fprintf(fid,'\t%f',Qmf1(i,j));
+        end
+        fprintf(fid,'\n');
+    end
+    
+    fclose(fid);
 end
 
-for i =1:size(Qmf1,1)
-    fprintf(fid,'%s',strcat(num2str(f1.mets.timepoints(i)),'f'));
-    for j = 1:size(Qmf1,2)
-        fprintf(fid,'\t%f',Qmf1(i,j));
-    end
-    fprintf(fid,'\n');
 end
-
-fclose(fid);
-
-close all
 
 
 
