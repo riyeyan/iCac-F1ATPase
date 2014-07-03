@@ -219,8 +219,5 @@ pip-log.txt
 ## MATLAB
 #############
 
-# binary data file
-*.mat
-
 # backup file for .m
 *.asv
