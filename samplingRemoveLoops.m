@@ -6,7 +6,7 @@ changeCobraSolver('gurobi5','MIQP');
 
 
 options.nFiles = 10;
-options.nWarmupPoints=5000;
+options.nWarmupPoints=1000;
 
 ratio = 1.2;
 options.nPointsReturned = nPoints*ratio;

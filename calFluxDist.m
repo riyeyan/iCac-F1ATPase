@@ -75,8 +75,8 @@ for i = 2:5
     [minFluxDist(:,i+3), maxFluxDist(:,i+3)] = fluxVariability(modelF1,100,'max');
     
     % sampling
-    sampleStructs{i-1,1}=samplingRemoveLoops(modelP1,5000);   
-    sampleStructs{i-1,2}=samplingRemoveLoops(modelF1,5000);   
+    sampleStructs{i-1,1}=samplingRemoveLoops(modelP1,1000);   
+    sampleStructs{i-1,2}=samplingRemoveLoops(modelF1,1000);   
 end
 
 

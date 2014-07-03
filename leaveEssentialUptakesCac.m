@@ -32,6 +32,8 @@ uptakeRxnIDs = {
     'EX_fe2(e)'
     'EX_fe3(e)'};
 uptakeLb = -1000+zeros(size(uptakeRxnIDs));
+% shut the PFL flux
+model = changeRxnBounds(model,'PFL',0,'u');
 modelE = changeRxnBounds(model,uptakeRxnIDs,uptakeLb,'l');
 end
         
