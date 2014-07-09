@@ -13,7 +13,7 @@ close all;
 load 'Ca_iYZ766_30-Jun-2014.mat';
 load 'f1.mat';
 load 'p1.mat';
-[mup1,muf1,Qmp1,Qmf1] = specRatesByFitting(f1,p1,0);
+[mup1,muf1,Qmp1,Qmf1] = specRatesByFitting(f1,p1,1);
 
 % change cobra solver
 changeCobraSolver('gurobi5','LP');
@@ -38,7 +38,7 @@ maxFluxDist = minFluxDist;
 % sampling resultes cell array
 sampleStructs = cell(5,2);
 
-for i = 2:5
+for i = 1:5
     % wild type model    
     % index of timepoints in od measurement
     ind_t = find(p1.timepoints==p1.mets.timepoints(i));
@@ -52,8 +52,8 @@ for i = 2:5
         modelF1 = changeRxnBounds(modelF1,boundRxns(j),Qmf1(i,j),'b');
     end
     
-    % solve model    
-    % 16/6/14 fix growth rate to experimental values
+%     solve model    
+%     16/6/14 fix growth rate to experimental values
     if mup1(ind_t) >=0
         modelP1 = changeRxnBounds(modelP1,'BIOMASS',mup1(ind_t),'b');
     else
@@ -65,18 +65,19 @@ for i = 2:5
         modelF1 = changeRxnBounds(modelF1,'BIOMASS',0,'b');
     end
     solP1 = optimizeCbModel(modelP1); solF1 = optimizeCbModel(modelF1);
-    data.fluxDist(:,i-1) = solP1.x;data.fluxDist(:,i+3) = solF1.x;
+%     data.fluxDist(:,i-1) = solP1.x;data.fluxDist(:,i+3) = solF1.x;
+    data.fluxDist(:,i) = solP1.x;data.fluxDist(:,i+4) = solF1.x;
     atpm(i,:) = [calNGAM(modelP1,ngamRxn) calNGAM(modelF1,ngamRxn)];
     printFluxVector(model,solP1.x,true,true);fprintf('mus = %f\n\n',mup1(ind_t));
     printFluxVector(model,solF1.x,true,true);fprintf('mus = %f\n\n',muf1(ind_t));
     
-    % range of flux variability
-    [minFluxDist(:,i-1), maxFluxDist(:,i-1)] = fluxVariability(modelP1,100,'max');
-    [minFluxDist(:,i+3), maxFluxDist(:,i+3)] = fluxVariability(modelF1,100,'max');
+%     range of flux variability
+%     [minFluxDist(:,i-1), maxFluxDist(:,i-1)] = fluxVariability(modelP1,100,'max');
+%     [minFluxDist(:,i+3), maxFluxDist(:,i+3)] = fluxVariability(modelF1,100,'max');
     
-    % sampling
-    sampleStructs{i-1,1}=samplingRemoveLoops(modelP1,1000);   
-    sampleStructs{i-1,2}=samplingRemoveLoops(modelF1,1000);   
+%     sampling
+%     sampleStructs{i-1,1}=samplingRemoveLoops(modelP1,1000);   
+%     sampleStructs{i-1,2}=samplingRemoveLoops(modelF1,1000);   
 end
 
 

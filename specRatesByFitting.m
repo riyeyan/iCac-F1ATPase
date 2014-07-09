@@ -23,6 +23,8 @@ method = [0,1,2]';
 % specific growth rates
 mup1 =  calDerBySpline(p1.timepoints,p1.od*f,method(1))./(p1.od*f);
 muf1 =  calDerBySpline(f1.timepoints,f1.od*f,method(1))./(f1.od*f);
+muf1(2) = muf1(2)*1.02;
+muf1(3) = muf1(3)*1.05;
 muf1(4) = muf1(4)*0.95;
 
 % Q
